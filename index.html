@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Monitor - Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- BARRA LATERAL (MENÚ) -->
+        <aside class="sidebar">
+            <h2>Portal Monitorías</h2>
+            <nav id="sidebar-nav">
+                <button class="nav-btn active" data-target="view-dashboard">Dashboard</button>
+                <button class="nav-btn" data-target="view-inscripcion">Inscripción</button>
+                <button class="nav-btn" data-target="view-reservas">Reservas</button>
+                <button class="nav-btn" data-target="view-evidencias">Evidencias</button>
+            </nav>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL (SECCIONES QUE CAMBIAN) -->
+        <main class="main-content">
+            <!-- Pestaña 1: Dashboard -->
+            <section id="view-dashboard" class="tab-content active">
+                <h1>Panel de Monitoreo e Indicadores</h1>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>Horas Cumplidas</h3>
+                        <p id="metric-horas">120 hrs</p>
+                    </div>
+                    <div class="card">
+                        <h3>Atenciones Realizadas</h3>
+                        <p id="metric-atenciones">45</p>
+                    </div>
+                    <div class="card">
+                        <h3>Satisfacción</h3>
+                        <p id="metric-satisfaccion">4.8 / 5.0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pestaña 2: Inscripción -->
+            <section id="view-inscripcion" class="tab-content">
+                <h1>Inscripción de Monitores</h1>
+                <form id="form-inscripcion" class="form-grid">
+                    <input type="text" id="doc_id" placeholder="Documento de Identidad" required>
+                    <input type="number" step="0.1" id="promedio" placeholder="Promedio Acumulado" required>
+                    <input type="number" id="semestre" placeholder="Semestre Actual" required>
+                    <button type="submit" class="btn-primary">Verificar y Postular</button>
+                </form>
+            </section>
+
+            <!-- Pestaña 3: Reservas -->
+            <section id="view-reservas" class="tab-content">
+                <h1>Reserva de Monitorías</h1>
+                <form id="form-reserva" class="form-grid">
+                    <input type="text" placeholder="Nombre o Documento" required>
+                    <select required>
+                        <option value="">Seleccione Materia</option>
+                        <option value="Sistemas">Sistemas</option>
+                        <option value="Matematicas">Matemáticas</option>
+                    </select>
+                    <button type="submit" class="btn-primary">Reservar Cupo</button>
+                </form>
+            </section>
+
+            <!-- Pestaña 4: Evidencias -->
+            <section id="view-evidencias" class="tab-content">
+                <h1>Carga de Evidencias</h1>
+                <form id="form-evidencias" class="form-grid">
+                    <input type="file" accept=".pdf,.png,.jpg" required>
+                    <button type="submit" class="btn-primary">Subir Evidencia</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- WIDGET DEL CHATBOT FLOTANTE -->
+    <div class="chat-widget">
+        <!-- Encabezado del Chat -->
+        <div class="chat-header">
+            <span>🤖 Bot Monitor Virtual</span>
+            <button id="chat-toggle-btn">−</button>
+        </div>
+
+        <!-- Cuerpo del Chat (Mensajes) -->
+        <div id="chat-box" class="chat-box">
+            <div class="bot-msg">¡Hola! Soy tu asistente de monitorías. ¿En qué puedo ayudarte hoy? (Prueba preguntando sobre convocatorias, ARL o requisitos).</div>
+        </div>
+
+        <!-- Área de Entrada de Texto -->
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button id="chat-send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT AL FINAL DEL BODY -->
+    <script src="script.js"></script>
+</body>
+</html>
